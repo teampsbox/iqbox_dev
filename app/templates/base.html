@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% block title %}
+        {% if title %}{{ title }} | TeamPSBOX
+        {% else %}Welcome to TeamPSBOX
+        {% endif %}
+      {% endblock title %}
+    </title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bulma.min.css') }}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  </head>
+  <body class="has-navbar-fixed-top">
+    <nav class="navbar is-link is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#">TeamPSBOX</a>
+    </div>
+    </div>
+    </nav>
+<section class="section">
+    <div class="container">
+
+      <div class="columns is-mobile is-centered">
+      <div class="column is-half has-text-success has-text-centered">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+
+  {% block content %}
+  {% endblock content %}
+  </div>
+</section>
+  </body>
+</html>

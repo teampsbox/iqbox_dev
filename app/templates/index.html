@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <!-- <h1 class="title">
+        Hello World
+      </h1>
+      <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p> -->
+      <form action="" method="POST" novalidate>
+          {{ form.hidden_tag() }}
+
+
+      <div class="columns is-mobile is-centered">
+      <div class="column is-half">
+          <div class="field">
+        <!-- <label class="label">{{form.title.label}}</label> -->
+        <div class="control">
+            {{ form.title(class="input is-normal", type="text", placeholder="Title") }}
+            {% for error in form.title.errors %}
+            <span style="color:red">{{ error }}</span>
+            {% endfor %}
+        </div>
+        </div>
+
+
+         <div class="field">
+        <!-- <label class="label">{{form.body.label}}</label> -->
+           <div class="control">
+            {{ form.body(class="textarea is-normal", type="text", placeholder="Body") }}
+            {% for error in form.body.errors %}
+            <span style="color:red">{{ error }}</span>
+            {% endfor %}
+           </div>
+         </div>
+       </div>
+        </div>
+
+
+        <div class="columns is-mobile is-centered">
+      <div class="column is-one-quarter">
+         <div class="field">
+        <!-- <label class="label">{{form.by.label}}</label> -->
+           <div class="control">
+            <p class="has-text-centered"><i>Quoted by:</i></p>
+            {{ form.by(class="input is-small", type="text", placeholder="") }}
+            {% for error in form.by.errors %}
+            <span style="color:red">{{ error }}</span>
+            {% endfor %}
+
+           </div>
+         </div>
+       </div>
+     </div>
+
+
+
+
+    <div class="field">
+    <p class="control has-text-centered">
+        {{ form.submit(class="button") }}
+    </p>
+    </div>
+
+
+      </form>
+      <hr>
+{% for quote in quotes %}
+{% include '_post.html' %}
+{% endfor %}
+
+
+
+{% endblock content %}
