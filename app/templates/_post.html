@@ -1,19 +1,24 @@
 <section class="articles">
             <div class="column is-8 is-offset-2">
 <!-- START ARTICLE -->
-                <div class="card article">
+                <div class="card">
                     <div class="card-content">
-                        <div class="media">
+                        
 
                             <div class="media-content has-text-centered">
                                 <p class="title article-title">{{ quote.title }}</p>
-                                <p class="subtitle is-6 article-subtitle">
+                                <p class="subtitle is-6 article-subtitle has-text-weight-normal">
                                     Posted on {{ quote.timestamp}}
                                 </p>
                             </div>
-                        </div>
+                        <br>
+                        <br>
                         <div class="content article-body">
-                            <p>{{ quote.body }}</p>
+                            <p class="has-text-centered is-italic">
+                                <q>{{ quote.body }}</q>
+                                
+                            </p>
+                            <p class="has-text-centered has-text-weight-semibold">{{ quote.by }}</p>
                         </div>
                     </div>
                 </div>
