@@ -13,6 +13,6 @@ def index():
         quote = Quote(title=form.title.data, body=form.body.data, by=form.by.data)
         db.session.add(quote)
         db.session.commit()
-        flash('Shared successfully!')
+        flash('Thank you for sharing!')
         return redirect(url_for('index'))
     return render_template('index.html', form=form, quotes=quotes)

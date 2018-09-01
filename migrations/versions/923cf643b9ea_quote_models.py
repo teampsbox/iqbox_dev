@@ -1,8 +1,8 @@
-"""quote model
+"""Quote models
 
-Revision ID: 14f8f3df1700
+Revision ID: 923cf643b9ea
 Revises: 
-Create Date: 2018-08-31 01:27:02.487951
+Create Date: 2018-09-01 00:28:32.037811
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '14f8f3df1700'
+revision = '923cf643b9ea'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,7 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=50), nullable=False),
     sa.Column('body', sa.String(length=250), nullable=False),
-    sa.Column('by', sa.String(length=25), nullable=True),
+    sa.Column('by', sa.String(length=25), nullable=False),
     sa.Column('timestamp', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
